@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://deli-bag.ru/sitemap-index.xml
+Sitemap: https://deli-bag.ru/sitemap.xml
+Sitemap: https://deli-bag.ru/sitemap-images.xml
+
+# Запретить только технические файлы
+Disallow: /assets/DBag_27.06.25_release_SIGNED.apk

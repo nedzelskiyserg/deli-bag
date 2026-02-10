@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <url>
+    <loc>https://deli-bag.ru/</loc>
+    
+    <!-- Главное изображение продукта -->
+    <image:image>
+      <image:loc>https://deli-bag.ru/assets/main_hero.png</image:loc>
+      <image:title>Delivery Bag - Умная термосумка для доставки еды</image:title>
+      <image:caption>Революционная умная термосумка с контролем температуры, GPS-трекингом и мобильным приложением</image:caption>
+    </image:image>
+    
+    <!-- Логотип компании -->
+    <image:image>
+      <image:loc>https://deli-bag.ru/assets/logo.svg</image:loc>
+      <image:title>Логотип Delivery Bag</image:title>
+      <image:caption>Официальный логотип компании Delivery Bag - производителя умных термосумок</image:caption>
+    </image:image>
+    
+    <!-- Фото команды/о компании -->
+    <image:image>
+      <image:loc>https://deli-bag.ru/assets/about.jpg</image:loc>
+      <image:title>Команда Delivery Bag</image:title>
+      <image:caption>Команда разработчиков умных термосумок Delivery Bag</image:caption>
+    </image:image>
+    
+    <!-- Галерея продукта - основные фото -->
+    <image:image>
+      <image:loc>https://deli-bag.ru/assets/img/Img.png</image:loc>
+      <image:title>Умная термосумка Delivery Bag - внешний вид</image:title>
+      <image:caption>Профессиональная термосумка для курьерской доставки еды</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://deli-bag.ru/assets/img/Img-1.png</image:loc>
+      <image:title>Delivery Bag - управление температурой</image:title>
+      <image:caption>Система контроля температуры в умной термосумке</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://deli-bag.ru/assets/img/Img-2.png</image:loc>
+      <image:title>Мобильное приложение Delivery Bag</image:title>
+      <image:caption>Интерфейс мобильного приложения для управления термосумкой</image:caption>
+    </image:image>
+    
+    <image:image>
+      <image:loc>https://deli-bag.ru/assets/img/Img-3.png</image:loc>
+      <image:title>GPS-трекинг в Delivery Bag</image:title>
+      <image:caption>Система GPS-отслеживания доставки в реальном времени</image:caption>
+    </image:image>
+    
+    <!-- Фон для секции тест-драйва -->
+    <image:image>
+      <image:loc>https://deli-bag.ru/assets/testdrive-bg.png</image:loc>
+      <image:title>Тест-драйв термосумки Delivery Bag</image:title>
+      <image:caption>Попробуйте умную термосумку в действии в Москве и Санкт-Петербурге</image:caption>
+    </image:image>
+    
+  </url>
+</urlset>
