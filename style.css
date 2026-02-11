@@ -269,7 +269,7 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
   height: 58.08rem;
   border-radius: 50%;
   filter: blur(190px);
-  background: #2D0A0E;
+  background: rgba(226, 20, 25, 0.4);
 }
 
 .main-block__blur--left {
@@ -460,7 +460,9 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
   flex-direction: column;
   gap: 1.3rem;
   padding: 2rem 2.3rem 2.5rem;
-  background: var(--color-grey);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   border-radius: 2.5rem;
   transition: transform 0.3s ease;
 }
@@ -553,7 +555,9 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
   flex-direction: column;
   text-align: left;
   padding: 2.5rem;
-  background: #1E1E20;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   border-radius: 3.2rem;
   transition: all 0s ease;
   width: 38.5rem;
@@ -1442,7 +1446,9 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
   height: 28.4rem;
   display: flex;
   align-items: flex-end;
-  background: #1E1E20;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
 }
 
 .users__item--w422 {
@@ -1554,7 +1560,9 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
 
 .app-download__methods {
   padding: 4.2rem;
-  background: #1E1E20;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   border-radius: 3.2rem;
   display: flex;
   flex-direction: column;
@@ -1563,7 +1571,7 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
 }
 
 .app-download__method {
-  background: #1E1E20;
+  background: transparent;
   border-radius: 3.2rem;
   display: flex;
   flex-direction: column;
@@ -1671,7 +1679,9 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
 }
 
 .app-download__feature {
-  background: #1E1E20;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   border-radius: 3.2rem;
   padding: 2.5rem 2.5rem 3.5rem 2.5rem;
   width: 38.5rem;
