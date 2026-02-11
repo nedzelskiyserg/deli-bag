@@ -48,7 +48,7 @@ async def send_telegram_notification(data: ConsultationRequest):
     random_quote = random.choice(wolf_quotes)
 
     message_text = (
-        f"<b>{random_quote} Круто! Поднял трубку набрал номер.</b>\n\n"
+        f"<b>{random_quote}</b>\n\n"
         f"👤 Имя: {data.name}\n"
         f"📞 Телефон: {data.phone}\n"
         f"📧 Email: {data.email}\n"
