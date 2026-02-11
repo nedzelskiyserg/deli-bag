@@ -201,90 +201,86 @@
   </div>
 
   <!-- Test Drive Modal -->
-<div class="modal" id="testdrive-modal">
-  <div class="modal__overlay"></div>
-  <div class="modal__container">
-    <button class="modal__close" aria-label="Закрыть модалку">
-      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
-    </button>
-    
-    <div class="modal__content">
-      <div class="modal__header">
-        <div class="modal__icon">
-            <img src="assets/d_logo.svg" alt="Логотип" width="48" height="48">
-        </div>
-        <h2 class="modal__title">Записаться на тест-драйв</h2>
-        <p class="modal__subtitle">Попробуйте нашу умную термосумку в деле</p>
-      </div>
-      
-      <form class="modal__form" id="testdrive-form">
+  <div class="modal" id="testdrive-modal">
+    <div class="modal__overlay"></div>
+    <div class="modal__container">
+      <button class="modal__close" aria-label="Закрыть модалку">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M18 6L6 18M6 6L18 18" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+            stroke-linejoin="round" />
+        </svg>
+      </button>
 
-        <div class="form__group">
-          <label class="form__label" for="name">Имя</label>
-          <input type="text" id="name" name="Имя" class="form__input" placeholder="Введите имя" required>
+      <div class="modal__content">
+        <div class="modal__header">
+          <div class="modal__icon">
+            <img src="assets/d_logo.svg" alt="Логотип" width="48" height="48">
+          </div>
+          <h2 class="modal__title">Записаться на тест-драйв</h2>
+          <p class="modal__subtitle">Попробуйте нашу умную термосумку в деле</p>
         </div>
-        
-        <div class="form__group">
-          <label class="form__label" for="phone">Телефон</label>
-          <input type="tel" id="phone" name="Телефон" class="form__input" placeholder="Введите номер телефона" required>
-        </div>
-        
-        <div class="form__group">
-          <label class="form__label" for="email">Email</label>
-          <input type="email" id="email" name="Email" class="form__input" placeholder="Введите email" required>
-        </div>
-        
-        <div class="form__group">
-          <label class="form__label" for="city">Город</label>
-          <div class="city-inputs">
-            <div class="custom-select" id="city-selector">
-              <div class="select-trigger">
-                <span class="select-text">Выберите город</span>
-                <svg class="select-arrow" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <path d="M4 6L8 10L12 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg>
+
+        <form class="modal__form" id="testdrive-form">
+
+          <div class="form__group">
+            <label class="form__label" for="name">Имя</label>
+            <input type="text" id="name" name="Имя" class="form__input" placeholder="Введите имя" required>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="phone">Телефон</label>
+            <input type="tel" id="phone" name="Телефон" class="form__input" placeholder="Введите номер телефона"
+              required>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="email">Email</label>
+            <input type="email" id="email" name="Email" class="form__input" placeholder="Введите email" required>
+          </div>
+
+          <div class="form__group">
+            <label class="form__label" for="city-select">Город</label>
+            <div class="city-inputs">
+              <select id="city-select" name="city-select" class="form__input form__select" required>
+                <option value="" disabled selected>Выберите город</option>
+                <option value="Москва">Москва</option>
+                <option value="Санкт-Петербург">Санкт-Петербург</option>
+                <option value="Екатеринбург">Екатеринбург</option>
+                <option value="Новосибирск">Новосибирск</option>
+                <option value="Казань">Казань</option>
+                <option value="other">Другой</option>
+              </select>
+
+              <div class="custom-city-input" id="custom-city-container" style="display: none; margin-top: 10px;">
+                <input type="text" id="custom-city" name="custom-city" class="form__input"
+                  placeholder="Введите ваш город">
               </div>
-              <input type="hidden" id="city" name="Город" required>
-              
-              <div class="select-dropdown" id="city-dropdown">
-                <div class="dropdown-item" data-value="Москва"><span class="city-name">Москва</span></div>
-                <div class="dropdown-item" data-value="Санкт-Петербург"><span class="city-name">Санкт-Петербург</span></div>
-                <div class="dropdown-item" data-value="Екатеринбург"><span class="city-name">Екатеринбург</span></div>
-                <div class="dropdown-item" data-value="Новосибирск"><span class="city-name">Новосибирск</span></div>
-                <div class="dropdown-item" data-value="Казань"><span class="city-name">Казань</span></div>
-                <div class="dropdown-item" data-value="Другой"><span class="city-name">Другой</span></div>
-              </div>
-            </div>
-            
-            <div class="custom-city-input" id="custom-city-container" style="display: none;">
-              <input type="text" id="custom-city" name="Город" class="form__input" placeholder="Город">
             </div>
           </div>
-        </div>
-        
-        <div class="form__group">
-          <label class="form__label" for="message">Дополнительная информация</label>
-          <textarea id="message" name="Дополнительная информация" class="form__textarea" rows="3" placeholder="Расскажите о ваших потребностях..."></textarea>
-        </div>
 
-        <button type="submit" class="modal__btn">
-          <span class="btn__text">Отправить заявку</span>
-          <span class="btn__icon">
-            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M3.33334 10H16.6667M16.6667 10L11.6667 5M16.6667 10L11.6667 15" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-          </span>
-        </button>
-      </form>
-      
-      <div class="modal__footer">
-        <p class="modal__note">Мы свяжемся с вами в течение 24 часов</p>
+          <div class="form__group">
+            <label class="form__label" for="message">Дополнительная информация</label>
+            <textarea id="message" name="Дополнительная информация" class="form__textarea" rows="3"
+              placeholder="Расскажите о ваших потребностях..."></textarea>
+          </div>
+
+          <button type="submit" class="modal__btn">
+            <span class="btn__text">Отправить заявку</span>
+            <span class="btn__icon">
+              <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3.33334 10H16.6667M16.6667 10L11.6667 5M16.6667 10L11.6667 15" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </span>
+          </button>
+        </form>
+
+        <div class="modal__footer">
+          <p class="modal__note">Мы свяжемся с вами в течение 24 часов</p>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
 
   <section class="main-block">

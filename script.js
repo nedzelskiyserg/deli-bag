@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Initialize phone mask and city select
       initPhoneMask();
-      initCitySelect();
+      initCityLogic();
     }, 300);
   }
 
@@ -105,18 +105,28 @@ document.addEventListener('DOMContentLoaded', function () {
       const formData = new FormData(modalForm);
       const data = Object.fromEntries(formData);
 
-      // --- FIX CITY LOGIC ---
-      // Explicitly check the select hidden input and custom input
-      const citySelectInput = document.getElementById('city');
+      // --- FIX CITY LOGIC (Professional) ---
+      const citySelect = document.getElementById('city-select');
       const customCityInput = document.getElementById('custom-city');
-      let finalCity = 'Не указан';
+      let finalCity = '';
 
-      if (citySelectInput && citySelectInput.value) {
-        if (citySelectInput.value === 'other' && customCityInput) {
-          finalCity = customCityInput.value.trim() || 'Другой (не указан)';
+      if (citySelect) {
+        if (citySelect.value === 'other') {
+          finalCity = customCityInput ? customCityInput.value.trim() : '';
+          if (!finalCity) {
+            alert('Пожалуйста, введите название вашего города');
+            if (customCityInput) customCityInput.focus();
+            return;
+          }
         } else {
-          finalCity = citySelectInput.value;
+          finalCity = citySelect.value;
         }
+      }
+
+      if (!finalCity) {
+        alert('Пожалуйста, выберите город');
+        if (citySelect) citySelect.focus();
+        return;
       }
 
       // --- PHONE VALIDATION ---
@@ -330,7 +340,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Initialize phone mask and city select
       initPhoneMask();
-      initCitySelect();
+      initCityLogic();
     }, 300);
   }
 
@@ -405,94 +415,29 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  // --- Custom City Select ---
-  function initCitySelect() {
-    const citySelector = document.getElementById('city-selector');
-    const cityTrigger = citySelector.querySelector('.select-trigger');
-    const cityDropdown = document.getElementById('city-dropdown');
-    const cityInput = document.getElementById('city');
-    const selectText = cityTrigger.querySelector('.select-text');
-    const dropdownItems = cityDropdown.querySelectorAll('.dropdown-item');
+  // --- Native City Logic ---
+  function initCityLogic() {
+    const citySelect = document.getElementById('city-select');
+    const customCityContainer = document.getElementById('custom-city-container');
+    const customCityInput = document.getElementById('custom-city');
 
-    console.log('initCitySelect called');
-    console.log('citySelector:', citySelector);
-    console.log('cityTrigger:', cityTrigger);
-    console.log('cityDropdown:', cityDropdown);
+    if (!citySelect || !customCityContainer) return;
 
-    if (!citySelector || !cityTrigger || !cityDropdown) {
-      console.log('Some elements not found');
-      return;
-    }
-
-    // Toggle dropdown
-    cityTrigger.addEventListener('click', function (e) {
-      e.preventDefault();
-      e.stopPropagation();
-
-      console.log('City trigger clicked');
-      console.log('Current dropdown state:', cityDropdown.classList.contains('select-dropdown--active'));
-
-      cityDropdown.classList.toggle('select-dropdown--active');
-      cityTrigger.classList.toggle('active');
-
-      console.log('New dropdown state:', cityDropdown.classList.contains('select-dropdown--active'));
-    });
-
-    // Handle dropdown item selection
-    dropdownItems.forEach(item => {
-      item.addEventListener('click', function (e) {
-        e.preventDefault();
-        e.stopPropagation();
-
-        const value = this.getAttribute('data-value');
-        const cityName = this.querySelector('.city-name').textContent;
-
-        // Update trigger text
-        selectText.textContent = cityName;
-        selectText.classList.remove('placeholder');
-
-        // Update hidden input
-        cityInput.value = value;
-
-        // Show/hide custom city input
-        const customCityContainer = document.getElementById('custom-city-container');
-        const customCityInput = document.getElementById('custom-city');
-
-        if (value === 'other') {
-          customCityContainer.style.display = 'block';
-          setTimeout(() => {
-            customCityContainer.classList.add('custom-city-input--visible');
-            if (customCityInput) customCityInput.focus();
-          }, 10);
-        } else {
-          customCityContainer.classList.remove('custom-city-input--visible');
-          setTimeout(() => {
-            customCityContainer.style.display = 'none';
-            if (customCityInput) customCityInput.value = '';
-          }, 300);
-        }
-
-        // Close dropdown
-        cityDropdown.classList.remove('select-dropdown--active');
-        cityTrigger.classList.remove('active');
-      });
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', function (e) {
-      if (!citySelector.contains(e.target)) {
-        cityDropdown.classList.remove('select-dropdown--active');
-        cityTrigger.classList.remove('active');
-      }
-    });
-
-    // Close dropdown on Escape key
-    document.addEventListener('keydown', function (e) {
-      if (e.key === 'Escape' && cityDropdown.classList.contains('select-dropdown--active')) {
-        cityDropdown.classList.remove('select-dropdown--active');
-        cityTrigger.classList.remove('active');
+    citySelect.addEventListener('change', function () {
+      if (this.value === 'other') {
+        customCityContainer.style.display = 'block';
+        setTimeout(() => {
+          customCityContainer.classList.add('custom-city-input--visible');
+          if (customCityInput) customCityInput.focus();
+        }, 10);
+      } else {
+        customCityContainer.classList.remove('custom-city-input--visible');
+        setTimeout(() => {
+          customCityContainer.style.display = 'none';
+          if (customCityInput) customCityInput.value = '';
+        }, 300);
       }
     });
   }
 
-}); 
+});
