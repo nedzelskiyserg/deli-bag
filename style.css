@@ -935,7 +935,9 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
 .preview360__image-block {
   width: 71.3rem;
   height: 53.5rem;
-  background: #2A2A2A;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   border-radius: 2.4rem;
   display: flex;
   align-items: center;
@@ -1236,7 +1238,9 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
 .about__image-block {
   width: 42.1rem;
   height: 42.1rem;
-  background: #2A2A2A;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(20px);
   border-radius: 2.4rem;
   flex-shrink: 0;
   overflow: hidden;
