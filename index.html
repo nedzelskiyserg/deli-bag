@@ -225,17 +225,20 @@
           <div class="form__group">
             <label class="form__label" for="name">Имя</label>
             <input type="text" id="name" name="Имя" class="form__input" placeholder="Введите имя" required>
+            <span class="error-message" id="error-name"></span>
           </div>
 
           <div class="form__group">
             <label class="form__label" for="phone">Телефон</label>
             <input type="tel" id="phone" name="Телефон" class="form__input" placeholder="Введите номер телефона"
               required>
+            <span class="error-message" id="error-phone"></span>
           </div>
 
           <div class="form__group">
             <label class="form__label" for="email">Email</label>
             <input type="email" id="email" name="Email" class="form__input" placeholder="Введите email" required>
+            <span class="error-message" id="error-email"></span>
           </div>
 
           <div class="form__group">
@@ -250,10 +253,12 @@
                 <option value="Казань">Казань</option>
                 <option value="other">Другой</option>
               </select>
+              <span class="error-message" id="error-city"></span>
 
               <div class="custom-city-input" id="custom-city-container" style="display: none; margin-top: 10px;">
                 <input type="text" id="custom-city" name="custom-city" class="form__input"
                   placeholder="Введите ваш город">
+                <span class="error-message" id="error-custom-city"></span>
               </div>
             </div>
           </div>

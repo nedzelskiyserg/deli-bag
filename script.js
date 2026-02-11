@@ -105,57 +105,61 @@ document.addEventListener('DOMContentLoaded', function () {
       const formData = new FormData(modalForm);
       const data = Object.fromEntries(formData);
 
-      // --- FIX CITY LOGIC (Professional) ---
-      const citySelect = document.getElementById('city-select');
-      const customCityInput = document.getElementById('custom-city');
+      let isValid = true;
       let finalCity = '';
 
-      if (citySelect) {
-        if (citySelect.value === 'other') {
-          finalCity = customCityInput ? customCityInput.value.trim() : '';
-          if (!finalCity) {
-            alert('Пожалуйста, введите название вашего города');
-            if (customCityInput) customCityInput.focus();
-            return;
-          }
-        } else {
-          finalCity = citySelect.value;
-        }
+      // Clear all previous errors
+      const inputs = modalForm.querySelectorAll('.form__input');
+      inputs.forEach(input => clearError(input));
+
+      // 1. Validate Name
+      const nameInput = document.getElementById('name');
+      if (!nameInput.value.trim()) {
+        showError(nameInput, 'Это поле обязательно для заполнения');
+        isValid = false;
       }
 
-      if (!finalCity) {
-        alert('Пожалуйста, выберите город');
-        if (citySelect) citySelect.focus();
-        return;
-      }
-
-      // --- PHONE VALIDATION ---
+      // 2. Validate Phone
       const phoneInput = document.getElementById('phone');
-      if (phoneInput) {
-        const phoneValue = phoneInput.value;
-        // Check strict format: +7 (XXX) XXX-XX-XX -> 18 chars
-        if (phoneValue.length !== 18) {
-          alert('Пожалуйста, введите корректный номер телефона полностью: +7 (XXX) XXX-XX-XX');
-          // Highlight error
-          phoneInput.style.borderColor = '#EF4444';
-          phoneInput.style.backgroundColor = '#FEF2F2';
-          setTimeout(() => {
-            phoneInput.style.borderColor = '';
-            phoneInput.style.backgroundColor = '';
-          }, 3000);
-          return;
-        }
+      const phoneValue = phoneInput.value;
+      if (!phoneValue) {
+        showError(phoneInput, 'Введите номер телефона');
+        isValid = false;
+      } else if (phoneValue.length !== 18) {
+        showError(phoneInput, 'Введите корректный номер: +7 (XXX) XXX-XX-XX');
+        isValid = false;
       }
 
-      // Validate email format
+      // 3. Validate Email
       const emailInput = document.getElementById('email');
-      if (emailInput && emailInput.value) {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(emailInput.value)) {
-          alert('Пожалуйста, введите корректный email адрес');
-          return;
-        }
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!emailInput.value.trim()) {
+        showError(emailInput, 'Введите email');
+        isValid = false;
+      } else if (!emailRegex.test(emailInput.value)) {
+        showError(emailInput, 'Введите корректный email адрес');
+        isValid = false;
       }
+
+      // 4. Validate City
+      const citySelect = document.getElementById('city-select');
+      const customCityInput = document.getElementById('custom-city');
+
+      if (!citySelect.value) {
+        showError(citySelect, 'Выберите город из списка');
+        isValid = false;
+      } else if (citySelect.value === 'other') {
+        if (!customCityInput.value.trim()) {
+          showError(customCityInput, 'Введите название вашего города');
+          isValid = false;
+        } else {
+          finalCity = customCityInput.value.trim();
+        }
+      } else {
+        finalCity = citySelect.value;
+      }
+
+      if (!isValid) return;
 
       // Show loading state
       const submitBtn = modalForm.querySelector('.modal__btn');
@@ -415,6 +419,48 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // --- Validation Helpers ---
+  function showError(input, message) {
+    const errorSpan = input.parentNode.querySelector('.error-message');
+    if (errorSpan) {
+      errorSpan.textContent = message;
+      errorSpan.classList.add('error-message--visible');
+    }
+    input.classList.add('form__input--error');
+  }
+
+  function clearError(input) {
+    const errorSpan = input.parentNode.querySelector('.error-message');
+    if (errorSpan) {
+      errorSpan.classList.remove('error-message--visible');
+    }
+    input.classList.remove('form__input--error');
+  }
+
+  // --- Real-time Validation ---
+  function initValidation() {
+    const inputs = document.querySelectorAll('.form__input');
+    inputs.forEach(input => {
+      // Clear error on input
+      input.addEventListener('input', function () {
+        clearError(this);
+      });
+
+      // Validate on blur (optional, can be annoying if too aggressive)
+      input.addEventListener('blur', function () {
+        if (this.value.trim() !== '') {
+          // Only validate on blur if user entered something, implies they finished typing
+          if (this.id === 'email') {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(this.value)) showError(this, 'Некорректный email');
+          } else if (this.id === 'phone') {
+            if (this.value.length !== 18) showError(this, 'Неполный номер');
+          }
+        }
+      });
+    });
+  }
+
   // --- Native City Logic ---
   function initCityLogic() {
     const citySelect = document.getElementById('city-select');
@@ -424,6 +470,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!citySelect || !customCityContainer) return;
 
     citySelect.addEventListener('change', function () {
+      clearError(this); // Clear select error
       if (this.value === 'other') {
         customCityContainer.style.display = 'block';
         setTimeout(() => {
@@ -434,10 +481,16 @@ document.addEventListener('DOMContentLoaded', function () {
         customCityContainer.classList.remove('custom-city-input--visible');
         setTimeout(() => {
           customCityContainer.style.display = 'none';
-          if (customCityInput) customCityInput.value = '';
+          if (customCityInput) {
+            customCityInput.value = '';
+            clearError(customCityInput); // Clear custom input error
+          }
         }, 300);
       }
     });
   }
+
+  // Initialize validation listeners
+  initValidation();
 
 });
