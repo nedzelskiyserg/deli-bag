@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', function () {
   const modal = document.getElementById('testdrive-modal');
   const modalOverlay = modal.querySelector('.modal__overlay');
   const modalClose = modal.querySelector('.modal__close');
-  const testdriveBtns = document.querySelectorAll('.header__testdrive-btn, .main-block__btn--primary, .testdrive__btn, .contacts__btn, .about__btn, .future-delivery__btn');
+  const testdriveBtns = document.querySelectorAll('.header__testdrive-btn, .main-block__btn--primary, .testdrive__btn, .contacts__btn, .about__btn, .future-delivery__btn, .delibag-lite__btn');
   const modalForm = document.getElementById('testdrive-form');
 
   // Open modal
@@ -303,6 +303,7 @@ document.addEventListener('DOMContentLoaded', function () {
     { selector: '.gallery', className: 'gallery--visible' },
     { selector: '.testdrive', className: 'testdrive--visible' },
     { selector: '.preview360__container', className: 'preview360--visible' },
+    { selector: '.delibag-lite', className: 'delibag-lite--visible' },
     { selector: '.about', className: 'about--visible' },
     { selector: '.users', className: 'users--visible' },
     { selector: '.app-download', className: 'app-download--visible' }
