@@ -50,31 +50,63 @@ document.addEventListener('DOMContentLoaded', function () {
   const testdriveBtns = document.querySelectorAll('.header__testdrive-btn, .main-block__btn--primary, .testdrive__btn, .contacts__btn, .about__btn, .future-delivery__btn, .delibag-lite__btn');
   const modalForm = document.getElementById('testdrive-form');
 
+  // Body scroll-lock helpers — preserve scroll position, robust on iOS Safari
+  let savedScrollY = 0;
+
+  function lockBodyScroll() {
+    savedScrollY = window.scrollY || window.pageYOffset || 0;
+    body.style.position = 'fixed';
+    body.style.top = `-${savedScrollY}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    body.style.width = '100%';
+    body.classList.add('modal-open');
+  }
+
+  function unlockBodyScroll() {
+    body.classList.remove('modal-open');
+    body.style.position = '';
+    body.style.top = '';
+    body.style.left = '';
+    body.style.right = '';
+    body.style.width = '';
+    window.scrollTo(0, savedScrollY);
+  }
+
   // Open modal
   function openModal() {
+    lockBodyScroll();
     modal.classList.add('modal--active');
-    body.classList.add('modal-open');
+    modal.setAttribute('aria-hidden', 'false');
+    modal.scrollTop = 0;
 
-    // Focus on first input and initialize components
     setTimeout(() => {
       const firstInput = modal.querySelector('.form__input');
-      if (firstInput) firstInput.focus();
-
-      // Initialize phone mask and city select
+      if (firstInput) firstInput.focus({ preventScroll: true });
       initPhoneMask();
       initCityLogic();
-    }, 300);
+    }, 350);
   }
 
   // Close modal
   function closeModal() {
     modal.classList.remove('modal--active');
-    body.classList.remove('modal-open');
+    modal.setAttribute('aria-hidden', 'true');
 
-    // Reset form
-    if (modalForm) {
+    // Wait for transition before unlocking scroll & resetting state
+    setTimeout(() => {
+      unlockBodyScroll();
+      if (!modalForm) return;
       modalForm.reset();
-    }
+      modalForm.querySelectorAll('.error-message--visible')
+        .forEach(e => e.classList.remove('error-message--visible'));
+      modalForm.querySelectorAll('.form__input--error, .form__select--error')
+        .forEach(i => i.classList.remove('form__input--error', 'form__select--error'));
+      // Re-sync submit-button disabled state with consent checkbox
+      const consent = document.getElementById('consent');
+      const submit = modalForm.querySelector('.modal__btn');
+      if (consent && submit) submit.disabled = !consent.checked;
+    }, 250);
   }
 
   // Event listeners for opening modal
@@ -347,23 +379,6 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('resize', animateClosestSection);
   animateClosestSection(); // на случай, если уже видно при загрузке
 
-  // Open modal
-  function openModal() {
-    modal.classList.add('modal--active');
-    body.classList.add('modal-open');
-
-    // Focus on first input and initialize components
-    setTimeout(() => {
-      const firstInput = modal.querySelector('.form__input');
-      if (firstInput) firstInput.focus();
-
-      // Initialize phone mask and city select
-      initPhoneMask();
-      initCityLogic();
-    }, 300);
-  }
-
-  // --- Scroll Animation ---
 
   // --- Phone Mask ---
   function initPhoneMask() {
