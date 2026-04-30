@@ -134,7 +134,8 @@
     "description": "Производитель умных термосумок для доставки еды с контролем температуры и GPS-трекингом",
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+7 (xxx) xxx-xx-xx",
+      "telephone": "+7 903 130 83 80",
+      "email": "Delivery.Help.me@gmail.com",
       "contactType": "customer service",
       "availableLanguage": "ru"
     },
@@ -144,19 +145,19 @@
       "addressLocality": "Москва"
     },
     "sameAs": [
-      "https://t.me/deliverybag"
+      "https://t.me/delivery_help"
     ]
   }
   </script>
 
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body class="page">
   <header class="header">
     <div class="header__container">
       <div class="header__logo">
-        <img src="assets/logo.svg" alt="Delivery Bag" class="header__logo-img">
+        <img src="/assets/logo.svg" alt="Delivery Bag" class="header__logo-img">
       </div>
       <nav class="header__nav nav">
         <ul class="nav__list">
@@ -215,7 +216,7 @@
       <div class="modal__content">
         <div class="modal__header">
           <div class="modal__icon">
-            <img src="assets/d_logo.svg" alt="Логотип" width="48" height="48">
+            <img src="/assets/d_logo.svg" alt="Логотип" width="48" height="48">
           </div>
           <h2 class="modal__title">Новая заявка</h2>
           <p class="modal__subtitle">Попробуйте нашу умную термосумку в деле</p>
@@ -270,7 +271,23 @@
               placeholder="Расскажите о ваших потребностях..."></textarea>
           </div>
 
-          <button type="submit" class="modal__btn">
+          <div class="form__group form__group--consent">
+            <label class="form__consent" for="consent">
+              <input type="checkbox" id="consent" name="consent" class="form__consent-input" required>
+              <span class="form__consent-box" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M2.5 7.5L5.5 10.5L11.5 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                </svg>
+              </span>
+              <span class="form__consent-text">
+                Я даю согласие на обработку <a href="/legal/privacy.html" target="_blank" rel="noopener" class="form__consent-link">персональных данных</a>
+                и принимаю условия <a href="/legal/offer.html" target="_blank" rel="noopener" class="form__consent-link">публичной оферты</a>.
+              </span>
+            </label>
+            <span class="error-message" id="error-consent"></span>
+          </div>
+
+          <button type="submit" class="modal__btn" disabled>
             <span class="btn__text">Отправить заявку</span>
             <span class="btn__icon">
               <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -295,7 +312,7 @@
       <div class="main-block__blur main-block__blur--left"></div>
       <div class="main-block__center">
         <div class="main-block__logo">
-          <img src="assets/main_hero.svg" alt="Delivery Bag - Умная термосумка для доставки"
+          <img src="/assets/main_hero.svg" alt="Delivery Bag - Умная термосумка для доставки"
             class="main-block__logo-img">
         </div>
         <h1 class="main-block__title" style="position: absolute; left: -9999px;">Delivery Bag - Умные термосумки для
@@ -367,40 +384,40 @@
     <div class="unique-features__container">
       <div class="unique-features__list">
         <div class="unique-features__item">
-          <div class="unique-features__icon"><img src="assets/feature-1.svg"
+          <div class="unique-features__icon"><img src="/assets/feature-1.svg"
               alt="Продуманный дизайн термосумки с перегородками и защитой"></div>
           <div class="unique-features__item-title">Продуманный<br>дизайн</div>
           <div class="unique-features__item-desc">Сумка адаптируется под заказ: перегородки, защита от влаги и ударов,
             термоизоляция.</div>
         </div>
         <div class="unique-features__item">
-          <div class="unique-features__icon"><img src="assets/feature-2.svg"
+          <div class="unique-features__icon"><img src="/assets/feature-2.svg"
               alt="Умное управление температурой в термосумке Delivery Bag"></div>
           <div class="unique-features__item-title">Управление<br>температурой</div>
           <div class="unique-features__item-desc">Сумка подогревает или охлаждает заказ во время доставки.</div>
         </div>
         <div class="unique-features__item">
-          <div class="unique-features__icon"><img src="assets/feature-3.svg"
+          <div class="unique-features__icon"><img src="/assets/feature-3.svg"
               alt="Точные датчики температуры для контроля в каждом отсеке"></div>
           <div class="unique-features__item-title">Датчики<br>температуры</div>
           <div class="unique-features__item-desc">Позволят контролировать необходимую температуру в каждом отсеке.</div>
         </div>
         <div class="unique-features__item">
-          <div class="unique-features__icon"><img src="assets/feature-4.svg"
+          <div class="unique-features__icon"><img src="/assets/feature-4.svg"
               alt="Надежная база данных и аналитика доставки"></div>
           <div class="unique-features__item-title">Надёжная<br>база данных</div>
           <div class="unique-features__item-desc">Всё фиксируется в реальном времени: маршрут, температура, открытия /
             движения сумки.</div>
         </div>
         <div class="unique-features__item">
-          <div class="unique-features__icon"><img src="assets/feature-5.svg"
+          <div class="unique-features__icon"><img src="/assets/feature-5.svg"
               alt="Автономная работа до 8 часов с USB-портами"></div>
           <div class="unique-features__item-title">Комфорт<br>и автономность</div>
           <div class="unique-features__item-desc">Работает до 8 часов: есть порты USB, держатели, чехол для телефона и
             LED-подсветка.</div>
         </div>
         <div class="unique-features__item">
-          <div class="unique-features__icon"><img src="assets/feature-6.svg"
+          <div class="unique-features__icon"><img src="/assets/feature-6.svg"
               alt="Мобильное приложение для управления умной термосумкой"></div>
           <div class="unique-features__item-title">Умное<br>приложение</div>
           <div class="unique-features__item-desc">Управление сумкой, пуш-уведомления, аналитика, данные о заказах и
@@ -416,25 +433,25 @@
     <div class="gallery__container">
       <div class="gallery__grid">
         <div class="gallery__item gallery__item--w426">
-          <img src="assets/img/Img.jpg" alt="Галерея изображение 7" class="gallery__img">
+          <img src="/assets/img/Img.jpg" alt="Галерея изображение 7" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w212 gallery__item--img1">
-          <img src="assets/img/Img-1.jpg" alt="Галерея изображение 1" class="gallery__img">
+          <img src="/assets/img/Img-1.jpg" alt="Галерея изображение 1" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w296 gallery__item--img2">
-          <img src="assets/img/Img-2.jpg" alt="Галерея изображение 2" class="gallery__img">
+          <img src="/assets/img/Img-2.jpg" alt="Галерея изображение 2" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w420 gallery__item--img3">
-          <img src="assets/img/Img-3.jpg" alt="Галерея изображение 3" class="gallery__img">
+          <img src="/assets/img/Img-3.jpg" alt="Галерея изображение 3" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w400 gallery__item--img4">
-          <img src="assets/img/Img-4.jpg" alt="Галерея изображение 4" class="gallery__img">
+          <img src="/assets/img/Img-4.jpg" alt="Галерея изображение 4" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w423 gallery__item--img7">
-          <img src="assets/img/Img-5.jpg" alt="Галерея изображение 5" class="gallery__img">
+          <img src="/assets/img/Img-5.jpg" alt="Галерея изображение 5" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w400 gallery__item--img6">
-          <img src="assets/img/Img-6.jpg" alt="Галерея изображение 6" class="gallery__img">
+          <img src="/assets/img/Img-6.jpg" alt="Галерея изображение 6" class="gallery__img">
         </div>
         <div class="gallery__spacer"></div>
         <div class="gallery__empty"></div>
@@ -444,7 +461,7 @@
 
   <section class="testdrive">
     <div class="testdrive__background">
-      <img src="assets/testdrive-bg.jpg" alt="background" class="testdrive__background-img">
+      <img src="/assets/testdrive-bg.jpg" alt="background" class="testdrive__background-img">
       <div class="testdrive__content">
         <div class="testdrive__cities">
           <div class="testdrive__city">москва</div>
@@ -510,7 +527,7 @@
             нашей термосумкой вы перестанете заботиться о доставке и переживать о состоянии еды во время пути.</div>
         </div>
         <div class="about__image-block">
-          <img src="assets/about_low.jpg" alt="О нас" class="about__image-img">
+          <img src="/assets/about_low.jpg" alt="О нас" class="about__image-img">
         </div>
       </div>
     </div>
@@ -520,22 +537,22 @@
     <div class="gallery__container">
       <div class="gallery__grid">
         <div class="gallery__item gallery__item--w422">
-          <img src="assets/img2/Img.jpg" alt="Пользователь 1" class="gallery__img">
+          <img src="/assets/img2/Img.jpg" alt="Пользователь 1" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w325 gallery__item--img1">
-          <img src="assets/img2/Img-1.jpg" alt="Пользователь 2" class="gallery__img">
+          <img src="/assets/img2/Img-1.jpg" alt="Пользователь 2" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w420 gallery__item--img2">
-          <img src="assets/img2/Img-2.jpg" alt="Пользователь 3" class="gallery__img">
+          <img src="/assets/img2/Img-2.jpg" alt="Пользователь 3" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w212">
-          <img src="assets/img2/Img-3.jpg" alt="Пользователь 4" class="gallery__img">
+          <img src="/assets/img2/Img-3.jpg" alt="Пользователь 4" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w535">
-          <img src="assets/img2/Img-4.jpg" alt="Пользователь 5" class="gallery__img">
+          <img src="/assets/img2/Img-4.jpg" alt="Пользователь 5" class="gallery__img">
         </div>
         <div class="gallery__item gallery__item--w423">
-          <img src="assets/img2/Img-5.jpg" alt="Пользователь 6" class="gallery__img">
+          <img src="/assets/img2/Img-5.jpg" alt="Пользователь 6" class="gallery__img">
         </div>
         <div class="gallery__spacer"></div>
         <div class="gallery__empty"></div>
@@ -577,10 +594,10 @@
             <div class="app-download__method-desc">Нажмите на нужную кнопку ниже, чтобы установить приложение из Google
               Play или RuStore.</div>
             <div class="app-download__stores">
-              <img src="assets/Google play.svg" alt="Google Play">
+              <img src="/assets/Google play.svg" alt="Google Play">
               <a href="https://www.rustore.ru/catalog/app/com.example.bluetooth_andr11" target="_blank"
                 rel="noopener noreferrer">
-                <img src="assets/Rustore.svg" alt="RuStore">
+                <img src="/assets/Rustore.svg" alt="RuStore">
               </a>
             </div>
           </div>
@@ -588,46 +605,46 @@
             <div class="app-download__method-title">По QR-коду</div>
             <div class="app-download__method-desc">Отсканируйте QR-код, и вы сразу перейдёте к загрузке приложения.
             </div>
-            <div class="app-download__qr"><img src="assets/qr-frame.svg" alt="QR code"></div>
+            <div class="app-download__qr"><img src="/assets/qr-frame.svg" alt="QR code"></div>
           </div>
           <div class="app-download__method app-download__method--direct">
             <div class="app-download__method-title">По прямой ссылке</div>
             <div class="app-download__method-desc">Скачайте приложение напрямую — быстро и без лишних переходов.</div>
-            <a href="assets/DBag_27.06.25_release_SIGNED.apk" download class="app-download__direct-btn">
+            <a href="/assets/DBag_27.06.25_release_SIGNED.apk" download class="app-download__direct-btn">
               <span class="app-download__direct-btn-text">Скачать</span>
-              <img src="assets/arrow.down.to.line.alt.svg" alt="Скачать" class="app-download__direct-btn-icon">
+              <img src="/assets/arrow.down.to.line.alt.svg" alt="Скачать" class="app-download__direct-btn-icon">
             </a>
           </div>
         </div>
         <div class="app-download__features">
           <div class="app-download__features-list">
             <div class="app-download__feature">
-              <div class="app-download__feature-icon"><img src="assets/feature-1-blue.svg" alt="Управляйте термосумкой">
+              <div class="app-download__feature-icon"><img src="/assets/feature-1-blue.svg" alt="Управляйте термосумкой">
               </div>
               <div class="app-download__feature-title">Управляйте<br>термосумкой</div>
             </div>
             <div class="app-download__feature">
-              <div class="app-download__feature-icon"><img src="assets/feature-2-temp.svg"
+              <div class="app-download__feature-icon"><img src="/assets/feature-2-temp.svg"
                   alt="Контролируйте темп. режим"></div>
               <div class="app-download__feature-title">Контролируйте<br>темп. режим</div>
             </div>
             <div class="app-download__feature">
-              <div class="app-download__feature-icon"><img src="assets/feature-3-battery.svg"
+              <div class="app-download__feature-icon"><img src="/assets/feature-3-battery.svg"
                   alt="Проверяйте уровень заряда"></div>
               <div class="app-download__feature-title">Проверяйте<br>уровень заряда</div>
             </div>
             <div class="app-download__feature">
-              <div class="app-download__feature-icon"><img src="assets/feature-4-analytics.svg"
+              <div class="app-download__feature-icon"><img src="/assets/feature-4-analytics.svg"
                   alt="Изучайте аналитику"></div>
               <div class="app-download__feature-title">Изучайте<br>аналитику</div>
             </div>
             <div class="app-download__feature">
-              <div class="app-download__feature-icon"><img src="assets/feature-5-access.svg"
+              <div class="app-download__feature-icon"><img src="/assets/feature-5-access.svg"
                   alt="Фиксируйте все изменения"></div>
               <div class="app-download__feature-title">Фиксируйте<br>все изменения</div>
             </div>
             <div class="app-download__feature">
-              <div class="app-download__feature-icon"><img src="assets/feature-6-settings.svg"
+              <div class="app-download__feature-icon"><img src="/assets/feature-6-settings.svg"
                   alt="Настраивайте доступы"></div>
               <div class="app-download__feature-title">Настраивайте<br>доступы</div>
             </div>
@@ -658,13 +675,13 @@
       <div class="delibag-lite__content">
         <div class="delibag-lite__images">
           <div class="delibag-lite__image-item">
-            <img src="assets/light/Image_202602151532.jpeg" alt="Delibag Lite Image 1" class="delibag-lite__image-img">
+            <img src="/assets/light/Image_202602151532.jpeg" alt="Delibag Lite Image 1" class="delibag-lite__image-img">
           </div>
           <div class="delibag-lite__image-item">
-            <img src="assets/light/Image_202602151535.jpeg" alt="Delibag Lite Image 2" class="delibag-lite__image-img">
+            <img src="/assets/light/Image_202602151535.jpeg" alt="Delibag Lite Image 2" class="delibag-lite__image-img">
           </div>
           <div class="delibag-lite__image-item">
-            <img src="assets/light/Image_202602151541.jpeg" alt="Delibag Lite Image 3" class="delibag-lite__image-img">
+            <img src="/assets/light/Image_202602151541.jpeg" alt="Delibag Lite Image 3" class="delibag-lite__image-img">
           </div>
         </div>
 
@@ -778,7 +795,7 @@
       <h2 class="faq__title">Часто-задаваемые вопросы</h2>
       <div class="faq__content">
         <div class="faq__image">
-          <img src="assets/faq.jpg" alt="FAQ" class="faq__image-img">
+          <img src="/assets/faq.jpg" alt="FAQ" class="faq__image-img">
         </div>
         <div class="faq__list">
           <div class="faq__item">
@@ -806,7 +823,7 @@
               <span class="faq__icon" aria-hidden="true"></span>
             </button>
             <div class="faq__answer" id="faq-answer-3" aria-labelledby="faq-question-3">
-              <div class="faq__answer-inner">Да, 3 месяца с момента покупки.</div>
+              <div class="faq__answer-inner">Да, 12 месяцев с момента покупки.</div>
             </div>
           </div>
           <div class="faq__item">
@@ -892,14 +909,14 @@
       emailjs.init("YOUR_USER_ID"); // Замените на ваш User ID
     })();
   </script>
-  <script src="script.js"></script>
+  <script src="/js/script.js"></script>
 
   <!-- Footer -->
   <footer class="footer" id="contacts">
     <div class="footer__container">
       <div class="footer__top">
         <div class="footer__logo-block">
-          <img src="assets/footer-logo.svg" alt="Delivery Bag" class="footer__logo">
+          <img src="/assets/footer-logo.svg" alt="Delivery Bag" class="footer__logo">
           <div class="footer__desc">Умные решения для доставки еды</div>
         </div>
         <div class="footer__contacts">
@@ -909,29 +926,44 @@
         <div class="footer__socials">
           <a href="https://t.me/delivery_help" target="_blank" rel="noopener noreferrer" class="footer__social-link"
             aria-label="Telegram">
-            <span class="footer__social-bg"><img src="assets/footer-whatsapp-2-bg.svg" alt=""
+            <span class="footer__social-bg"><img src="/assets/footer-whatsapp-2-bg.svg" alt=""
                 class="footer__social-bg-img"></span>
-            <img src="assets/footer-whatsapp-2.svg" alt="Telegram" class="footer__social-icon">
+            <img src="/assets/footer-whatsapp-2.svg" alt="Telegram" class="footer__social-icon">
           </a>
           <a href="https://wa.me/79031308380" target="_blank" rel="noopener noreferrer" class="footer__social-link"
             aria-label="WhatsApp">
-            <span class="footer__social-bg"><img src="assets/footer-whatsapp-1-bg.svg" alt=""
+            <span class="footer__social-bg"><img src="/assets/footer-whatsapp-1-bg.svg" alt=""
                 class="footer__social-bg-img"></span>
-            <img src="assets/footer-whatsapp-1.svg" alt="WhatsApp" class="footer__social-icon">
+            <img src="/assets/footer-whatsapp-1.svg" alt="WhatsApp" class="footer__social-icon">
           </a>
         </div>
+      </div>
+
+      <div class="footer__legal-info">
+        ИП Мишарин Игорь Михайлович · ИНН 772917419858
       </div>
 
       <div class="footer__bottom">
         <div class="footer__copyright">2025 © Delivery-Bag. Все права защищены.</div>
         <ul class="footer__links">
-          <li><a href="#" class="footer__link">Политика конфиденциальности</a></li>
-          <li><a href="#" class="footer__link">Публичная оферта</a></li>
-          <li><a href="#" class="footer__link">Контактная информация</a></li>
+          <li><a href="/legal/privacy.html" class="footer__link">Политика конфиденциальности</a></li>
+          <li><a href="/legal/offer.html" class="footer__link">Публичная оферта</a></li>
+          <li><a href="/legal/contacts.html" class="footer__link">Контактная информация</a></li>
         </ul>
       </div>
     </div>
   </footer>
+
+  <!-- Cookie banner -->
+  <div class="cookie-banner" id="cookie-banner" role="dialog" aria-live="polite" aria-label="Уведомление об использовании cookies">
+    <div class="cookie-banner__container">
+      <div class="cookie-banner__text">
+        Мы используем файлы cookies и сервисы веб-аналитики (Яндекс.Метрика, Google Analytics) для корректной работы сайта и сбора обезличенной статистики. Подробности — в
+        <a href="/legal/privacy.html" class="cookie-banner__link">Политике обработки персональных данных</a>. Продолжая использовать сайт, вы соглашаетесь с этими условиями.
+      </div>
+      <button type="button" class="cookie-banner__btn" id="cookie-accept">Принять</button>
+    </div>
+  </div>
 </body>
 
 </html>

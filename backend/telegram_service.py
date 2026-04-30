@@ -47,13 +47,18 @@ async def send_telegram_notification(data: ConsultationRequest):
 
     random_quote = random.choice(wolf_quotes)
 
+    consent_marker = "✅ Согласие на обработку ПДн получено"
+    if data.consent_ts:
+        consent_marker += f" ({data.consent_ts.isoformat()})"
+
     message_text = (
         f"<b>{random_quote}</b>\n\n"
         f"👤 Имя: {data.name}\n"
         f"📞 Телефон: {data.phone}\n"
         f"📧 Email: {data.email}\n"
         f"🏙 Город: {data.city}\n"
-        f"📝 Сообщение: {data.message or 'Не указано'}"
+        f"📝 Сообщение: {data.message or 'Не указано'}\n\n"
+        f"{consent_marker}"
     )
 
     url = f"https://api.telegram.org/bot{bot_token}/sendMessage"

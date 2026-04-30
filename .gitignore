@@ -4,8 +4,20 @@ __pycache__/
 .env
 .venv
 venv/
+venv_deploy/
 env/
 .DS_Store
 .idea/
 .vscode/
 *.log
+
+# Sensitive / personal docs that must not enter the repo
+*.docx
+*.doc
+*.xlsx
+*.xls
+*.pdf
+deli-bag-deploy.tar.gz
+
+# Let's Encrypt certs / certbot data
+certbot/

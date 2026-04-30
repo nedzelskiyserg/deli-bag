@@ -159,6 +159,17 @@ document.addEventListener('DOMContentLoaded', function () {
         finalCity = citySelect.value;
       }
 
+      // 5. Validate consent
+      const consentInput = document.getElementById('consent');
+      if (consentInput && !consentInput.checked) {
+        const errSpan = document.getElementById('error-consent');
+        if (errSpan) {
+          errSpan.textContent = 'Необходимо согласие на обработку персональных данных';
+          errSpan.classList.add('error-message--visible');
+        }
+        isValid = false;
+      }
+
       if (!isValid) return;
 
       // Show loading state
@@ -182,7 +193,10 @@ document.addEventListener('DOMContentLoaded', function () {
         phone: data['Телефон'],
         email: data['Email'],
         city: finalCity,
-        message: data['Дополнительная информация']
+        message: data['Дополнительная информация'],
+        consent: !!(consentInput && consentInput.checked),
+        consent_text: consentInput ? consentInput.parentNode.querySelector('.form__consent-text')?.innerText.trim() : '',
+        consent_ts: new Date().toISOString()
       };
 
       fetch('/api/submit', {
@@ -493,5 +507,46 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // Initialize validation listeners
   initValidation();
+
+  // --- Consent checkbox: toggle submit button ---
+  const consentCheckbox = document.getElementById('consent');
+  const submitBtn = modalForm ? modalForm.querySelector('.modal__btn') : null;
+
+  if (consentCheckbox && submitBtn) {
+    const syncSubmit = () => {
+      submitBtn.disabled = !consentCheckbox.checked;
+      const errSpan = document.getElementById('error-consent');
+      if (consentCheckbox.checked && errSpan) {
+        errSpan.classList.remove('error-message--visible');
+      }
+    };
+    consentCheckbox.addEventListener('change', syncSubmit);
+    syncSubmit();
+  }
+
+  // --- Cookie banner ---
+  const cookieKey = 'db_cookie_consent_v1';
+  const cookieBanner = document.getElementById('cookie-banner');
+  const cookieAcceptBtn = document.getElementById('cookie-accept');
+
+  if (cookieBanner) {
+    const stored = localStorage.getItem(cookieKey);
+    if (!stored) {
+      cookieBanner.classList.add('cookie-banner--visible');
+    }
+    if (cookieAcceptBtn) {
+      cookieAcceptBtn.addEventListener('click', function () {
+        try {
+          localStorage.setItem(cookieKey, JSON.stringify({
+            accepted: true,
+            ts: new Date().toISOString()
+          }));
+        } catch (e) {
+          /* localStorage unavailable — silent */
+        }
+        cookieBanner.classList.remove('cookie-banner--visible');
+      });
+    }
+  }
 
 });

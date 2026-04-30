@@ -822,7 +822,7 @@ body.mobile-nav-active .header__burger-btn span:nth-child(3) {
   display: flex;
   align-items: center;
   padding: 3.2rem 0 3.2rem 3.2rem;
-  background-image: url('assets/testdrive-bg.png');
+  background-image: url('/assets/testdrive-bg.png');
   background-size: 100% 100%;
   background-repeat: no-repeat;
   background-position: center;
@@ -4806,5 +4806,306 @@ body.modal-open {
 @media (min-width: 1200px) {
   .delibag-lite__container {
     /* padding: 8rem 12.2rem; */
+  }
+}
+
+/* ==========================================================================
+   Legal pages (privacy / offer / contacts)
+   ========================================================================== */
+.legal-page {
+  background: var(--color-bg);
+  color: var(--color-text);
+}
+
+.legal {
+  width: 100%;
+  padding: 4rem 0 6rem;
+  background: var(--color-bg);
+}
+
+.legal__container {
+  max-width: 86rem;
+  margin: 0 auto;
+  padding: 0 2rem;
+  font-family: var(--font-main);
+  line-height: 1.65;
+  font-size: 1.6rem;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+.legal__title {
+  font-size: 3.2rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.legal__meta {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 1rem;
+}
+
+.legal__section {
+  margin-top: 3.2rem;
+}
+
+.legal__section h2 {
+  font-size: 2.1rem;
+  line-height: 1.25;
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: 1.4rem;
+  letter-spacing: -0.005em;
+}
+
+.legal__section p {
+  margin-bottom: 1.2rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.legal__list {
+  list-style: disc;
+  padding-left: 2.2rem;
+  margin-bottom: 1.4rem;
+}
+
+.legal__list li {
+  margin-bottom: 0.8rem;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.legal__link {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color 0.2s ease;
+}
+
+.legal__link:hover {
+  color: var(--color-accent);
+}
+
+.legal__card {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 1.6rem;
+  padding: 2rem 2.4rem;
+  margin: 1.6rem 0;
+}
+
+.legal__card p {
+  margin-bottom: 0.8rem;
+}
+
+.legal__card p:last-child {
+  margin-bottom: 0;
+}
+
+.legal__note {
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.55);
+  font-style: italic;
+}
+
+@media (min-width: 769px) {
+  .legal {
+    padding: 6rem 0 8rem;
+  }
+
+  .legal__title {
+    font-size: 4rem;
+  }
+
+  .legal__section h2 {
+    font-size: 2.4rem;
+  }
+
+  .legal__container {
+    padding: 0 4rem;
+  }
+}
+
+/* ==========================================================================
+   Footer legal info (ИНН + ИП в подвале)
+   ========================================================================== */
+.footer__legal-info {
+  text-align: center;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.45);
+  padding-top: 1.4rem;
+  border-top: 0.1rem solid rgba(255, 255, 255, 0.08);
+}
+
+/* ==========================================================================
+   Consent checkbox (152-ФЗ)
+   ========================================================================== */
+.form__group--consent {
+  margin-top: 0.4rem;
+}
+
+.form__consent {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.form__consent-input {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+  pointer-events: none;
+}
+
+.form__consent-box {
+  flex: 0 0 auto;
+  width: 2rem;
+  height: 2rem;
+  border: 0.15rem solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.5rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  transition: all 0.2s ease;
+  color: transparent;
+  margin-top: 0.1rem;
+}
+
+.form__consent-input:checked + .form__consent-box {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: #fff;
+}
+
+.form__consent-input:focus-visible + .form__consent-box {
+  box-shadow: 0 0 0 0.3rem rgba(226, 20, 25, 0.25);
+}
+
+.form__consent-text {
+  font-size: 1.3rem;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.form__consent-link {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.form__consent-link:hover {
+  color: var(--color-accent);
+}
+
+.modal__btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  filter: grayscale(0.2);
+}
+
+/* ==========================================================================
+   Cookie banner
+   ========================================================================== */
+.cookie-banner {
+  position: fixed;
+  left: 1.6rem;
+  right: 1.6rem;
+  bottom: 1.6rem;
+  z-index: 9999;
+  background: rgba(15, 15, 20, 0.96);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 1.6rem;
+  box-shadow: 0 1.6rem 4rem rgba(0, 0, 0, 0.5);
+  padding: 1.6rem 1.8rem;
+  transform: translateY(150%);
+  opacity: 0;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.cookie-banner--visible {
+  transform: translateY(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.cookie-banner__container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  max-width: 120rem;
+  margin: 0 auto;
+}
+
+.cookie-banner__text {
+  font-size: 1.3rem;
+  line-height: 1.55;
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.cookie-banner__link {
+  color: var(--color-link);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.cookie-banner__link:hover {
+  color: var(--color-accent);
+}
+
+.cookie-banner__btn {
+  align-self: stretch;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  border-radius: 1rem;
+  padding: 1.2rem 2.4rem;
+  font-size: 1.5rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.2s ease;
+  font-family: var(--font-main);
+}
+
+.cookie-banner__btn:hover {
+  background: var(--color-accent-2);
+  transform: translateY(-1px);
+}
+
+.cookie-banner__btn:active {
+  transform: translateY(0);
+}
+
+@media (min-width: 769px) {
+  .cookie-banner {
+    left: 2.4rem;
+    right: 2.4rem;
+    bottom: 2.4rem;
+    padding: 2rem 2.4rem;
+  }
+
+  .cookie-banner__container {
+    flex-direction: row;
+    align-items: center;
+    gap: 2.4rem;
+  }
+
+  .cookie-banner__text {
+    flex: 1;
+    font-size: 1.4rem;
+  }
+
+  .cookie-banner__btn {
+    align-self: auto;
+    flex: 0 0 auto;
+    padding: 1.2rem 3.2rem;
   }
 }
